@@ -22,4 +22,21 @@ if __name__ == '__main__':
     print(max(uniqueScores))
     #after removing winner we left with the runner up 
 
-### ###
+### Nested list ###
+if __name__ == '__main__':
+    studs=[] #created empty list 
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        studs.append([name,score])
+        #now empty list wil be filled
+
+    #for all unique grades i use list comprehension
+    grades = sorted(list(set([score for name,score in studs])))
+    second_lowest = grades[1]   #2nd lowest grade
+
+    runner_up_students = [name for name, score in studs if score == second_lowest]   
+
+    runner_up_students.sort() #to sort names in alphabetically
+    for name in runner_up_students:
+      print(name) 
